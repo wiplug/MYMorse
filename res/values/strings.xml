@@ -2,5 +2,6 @@
 
     <string name="app_name">MYMorse</string>
     <!-- Je suis Yoann et j'aime le PC !! -->
+    <string name="hello_world">Hello World!</string>
 
 </resources>
