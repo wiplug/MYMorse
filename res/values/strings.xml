@@ -4,5 +4,15 @@
     <!-- Je suis Yoann et j'aime le PC !! -->
     <string name="hello_world">Hello World!</string>
     <string name="parametres">Paramètres</string>
+    <string name="quitter">Quitter</string>
+    <string name="duree_point">Durée d\'un point (ms)</string>
+    <string name="ok">Ok</string>
+    <string name="annuler">Annuler</string>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#999999</color>
+    <string name="vibreur">Vibreur</string>
+    <string name="son">Son</string>
+    <string name="flash">Flash</string>
 
 </resources>
