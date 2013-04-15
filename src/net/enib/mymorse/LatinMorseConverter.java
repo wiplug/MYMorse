@@ -58,8 +58,8 @@ public class LatinMorseConverter {
 			morseAlphabet.put(alphabetTable[i+1], alphabetTable[i]);
 		}
 		
-		//Log.d("MorseConverter", "MYMorse : "+latinToMorseString("MYMorse lala"));
-		//Log.d("MorseConverter", "MYMorse : "+morseToLatinString(latinToMorseString("MYMorse lala")));
+		Log.d("MorseConverter", "MYMorse : "+latinToMorseString("MYMorse lala"));
+		Log.d("MorseConverter", "MYMorse : "+morseToLatinString(latinToMorseString("MYMorse lala")));
 	}
 	
 	private String latinToMorseChar(Character c){
@@ -69,7 +69,7 @@ public class LatinMorseConverter {
 		if(latinAlphabet.containsKey(key)){
 			mc = latinAlphabet.get(key);
 		}
-		return mc;
+		return mc.trim();
 	}
 	
 	public String latinToMorseString(String s){
@@ -85,7 +85,7 @@ public class LatinMorseConverter {
 				result += "/ ";
 			}
 		}
-		return result;
+		return result.trim();
 	}
 	
 	public String morseToLatinString(String s){
@@ -98,6 +98,6 @@ public class LatinMorseConverter {
 				result += " ";
 			}
 		}
-		return result;
+		return result.trim();
 	}
 }
