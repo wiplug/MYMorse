@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -17,10 +20,12 @@ public class MainActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		intentNameActivity = new Intent(MainActivity.this, ParametresActivity.class);
 		setContentView(R.layout.activity_main);
-		Log.d("MainActivity", "Start");
+		LatinMorseConverter morseConverter = new LatinMorseConverter();
+		//Log.d("MainActivity", "Start");
 	}
 	
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,4 +45,14 @@ public class MainActivity extends Activity {
               return true;
         }
         return false;}
+    
+    public void swapTitle(View v){
+    	//Log.d("MainActivity", "swapTitle");
+    	TextView title = (TextView) v.findViewById(R.id.title);
+    	if(title.getText().toString().equalsIgnoreCase(getString(R.string.MYMorse))){
+    		title.setText(R.string.mMYMorse);
+    	} else {
+    		title.setText(R.string.MYMorse);
+    	}
+    }
 }

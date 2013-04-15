@@ -9,7 +9,8 @@
      android:entryValues="@array/pointTimeArray_values"
      android:key="dureePointListKey"
      android:summary=""
-     android:title="@string/duree_point" />
+     android:title="@string/duree_point"
+     android:defaultValue="400" />
  </PreferenceCategory>
  <PreferenceCategory
    android:summary="@string/interactions_description"
@@ -19,20 +20,23 @@
         android:text="@string/son"
      	android:key="sonCheckBox"
      	android:summary=""
-     	android:title="@string/son" />
+     	android:title="@string/son" 
+     	android:defaultValue="true" />
      
      <CheckBoxPreference
-         android:id="@+id/vibreurCheckbox"
-         android:text="@string/vibreur"
+        android:id="@+id/vibreurCheckbox"
+        android:text="@string/vibreur"
      	android:key="vibreurCheckBox"
      	android:summary=""
-     	android:title="@string/vibreur" />
+     	android:title="@string/vibreur"
+     	android:defaultValue="true" />
      
      <CheckBoxPreference
-         android:id="@+id/flashCheckbox"
-         android:text="@string/flash"
+        android:id="@+id/flashCheckbox"
+        android:text="@string/flash"
      	android:key="flashCheckBox"
      	android:summary=""
-     	android:title="@string/flash" />
+     	android:title="@string/flash" 
+     	android:defaultValue="true" />
  </PreferenceCategory>
 </PreferenceScreen>

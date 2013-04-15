@@ -30,4 +30,7 @@
      	<item>400</item>
      	<item>500</item>
    </string-array>
+   <string name="MYMorse"><b>MYMorse</b></string>
+   <string name="mMYMorse"><b>__ _.__ __ ___ ._. ... .</b></string>
+   <string name="MaximeYoannMorse"><b>M</b>axime <b>Y</b>oann <b>Morse</b></string>
 </resources>

@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -31,9 +32,11 @@ public class ParametresActivity extends PreferenceActivity implements OnSharedPr
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.layout.activity_parametres);
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		sharedPreferences.contains(DUREEPOINTLISTKEY);
 		dureePointList = (ListPreference) findPreference(DUREEPOINTLISTKEY);
 		sonCheckbox = (CheckBoxPreference) findPreference(SONCHECKBOXKEY);
 		vibreurCheckbox = (CheckBoxPreference) findPreference(VIBREURCHECKBOXKEY);
@@ -47,12 +50,12 @@ public class ParametresActivity extends PreferenceActivity implements OnSharedPr
 		flashCheckbox.setChecked(sharedPreferences.getBoolean(FLASHCHECKBOXKEY, false));
 		flashCheckbox.setSummary(sharedPreferences.getBoolean(FLASHCHECKBOXKEY, false) ? "Flash activé" : "Flash désactivé");
 		
-		Log.d("ParametreActivity", "Start");
+		//Log.d("ParametreActivity", "Start");
 		
 	}
 	
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-		Log.d("ParametreActivity", "Preference Change");
+		//Log.d("ParametreActivity", "Preference Change");
 	    if (key.equals(DUREEPOINTLISTKEY)) {
 	    	dureePointList.setSummary(sharedPreferences.getString(key, "Error") + " ms");
 	    } else if (key.equals(SONCHECKBOXKEY)) {

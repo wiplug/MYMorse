@@ -2,11 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:gravity="center"
+        android:text="@string/MYMorse"
+        android:onClick="swapTitle"
+        android:textSize="28sp"
+        android:paddingTop="20dp"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:text="@string/MaximeYoannMorse"
+        android:gravity="center"
+        android:textSize="15sp"/>
 
 </RelativeLayout>
