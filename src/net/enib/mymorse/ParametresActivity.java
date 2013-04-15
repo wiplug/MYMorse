@@ -1,7 +1,13 @@
 package net.enib.mymorse;
 
 import net.enib.mymorse.R;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -9,52 +15,52 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-public class ParametresActivity extends FragmentActivity {
+public class ParametresActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener{
+
+	ListPreference dureePointList;
+	CheckBoxPreference sonCheckbox;
+	CheckBoxPreference vibreurCheckbox;
+	CheckBoxPreference flashCheckbox;
 	
-	boolean son;
-	boolean vibreur;
-	boolean flash;
+	SharedPreferences sharedPreferences;
 	
-	public ParametresActivity(){
-		son = true;
-		vibreur = true;
-		flash = true;
-	}
+	final String DUREEPOINTLISTKEY = "dureePointListKey";
+	final String SONCHECKBOXKEY = "sonCheckBox";
+	final String VIBREURCHECKBOXKEY = "vibreurCheckBox";
+	final String FLASHCHECKBOXKEY = "flashCheckBox";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_parametres);
-		((CheckBox) findViewById(R.id.sonCheckbox)).setChecked(son);
-		((CheckBox) findViewById(R.id.vibreurCheckbox)).setChecked(vibreur);
-		((CheckBox) findViewById(R.id.flashCheckbox)).setChecked(flash);
+		addPreferencesFromResource(R.layout.activity_parametres);
+		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		dureePointList = (ListPreference) findPreference(DUREEPOINTLISTKEY);
+		sonCheckbox = (CheckBoxPreference) findPreference(SONCHECKBOXKEY);
+		vibreurCheckbox = (CheckBoxPreference) findPreference(VIBREURCHECKBOXKEY);
+		flashCheckbox = (CheckBoxPreference) findPreference(FLASHCHECKBOXKEY);
+		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+		dureePointList.setSummary(sharedPreferences.getString(DUREEPOINTLISTKEY, "") + " ms");
+		sonCheckbox.setChecked(sharedPreferences.getBoolean(SONCHECKBOXKEY, false));
+		sonCheckbox.setSummary(sharedPreferences.getBoolean(SONCHECKBOXKEY, false) ? "Son activé" : "Son désactivé");
+		vibreurCheckbox.setChecked(sharedPreferences.getBoolean(VIBREURCHECKBOXKEY, false));
+		vibreurCheckbox.setSummary(sharedPreferences.getBoolean(VIBREURCHECKBOXKEY, false) ? "Vibreur activé" : "Vibreur désactivé");
+		flashCheckbox.setChecked(sharedPreferences.getBoolean(FLASHCHECKBOXKEY, false));
+		flashCheckbox.setSummary(sharedPreferences.getBoolean(FLASHCHECKBOXKEY, false) ? "Flash activé" : "Flash désactivé");
+		
 		Log.d("ParametreActivity", "Start");
+		
 	}
 	
-	public void pointTime(View view) {
-		//Toast.makeText(ParametresActivity.this, R.string.parametres, Toast.LENGTH_SHORT).show();
-		//Log.d("ParametreActivity", "Durée d'un point");
-		FragmentManager fm = getSupportFragmentManager();
-        NumberPickerDialog npd = new NumberPickerDialog();
-        npd.show(fm, "fragment_edit_name");
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		Log.d("ParametreActivity", "Preference Change");
+	    if (key.equals(DUREEPOINTLISTKEY)) {
+	    	dureePointList.setSummary(sharedPreferences.getString(key, "Error") + " ms");
+	    } else if (key.equals(SONCHECKBOXKEY)) {
+	    	sonCheckbox.setSummary(sharedPreferences.getBoolean(key, false) ? "Son activé" : "Son désactivé");
+	    } else if (key.equals(VIBREURCHECKBOXKEY)) {
+	    	vibreurCheckbox.setSummary(sharedPreferences.getBoolean(key, false) ? "Vibreur activé" : "Vibreur désactivé");
+	    } else if (key.equals(FLASHCHECKBOXKEY)) {
+	    	flashCheckbox.setSummary(sharedPreferences.getBoolean(key, false) ? "Flash activé" : "Flash désactivé");
+	    }
 	}
-	
-	public void isVibreur(View view) {
-		//Toast.makeText(ParametresActivity.this, R.string.vibreur, Toast.LENGTH_SHORT).show();
-		//Log.d("ParametreActivity", "Vibreur");
-		this.vibreur = ((CheckBox) view.findViewById(R.id.vibreurCheckbox)).isChecked();
-	}
-	
-	public void isSon(View view) {
-		//Toast.makeText(ParametresActivity.this, R.string.son, Toast.LENGTH_SHORT).show();
-		//Log.d("ParametreActivity", "Son");
-		this.son = ((CheckBox) view.findViewById(R.id.sonCheckbox)).isChecked();
-	}
-	
-	public void isFlash(View view) {
-		//Toast.makeText(ParametresActivity.this, R.string.flash, Toast.LENGTH_SHORT).show();
-		//Log.d("ParametreActivity", "Flash");
-		this.flash = ((CheckBox) view.findViewById(R.id.flashCheckbox)).isChecked();
-	}
-	
 }

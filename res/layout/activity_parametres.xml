@@ -1,42 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ParametresActivity">
-    
-     <Button
-     	 android:id="@+id/dureePointButton"
-	     android:layout_height="wrap_content"
-	     android:layout_width="fill_parent"
-	     android:text="@string/duree_point"
-	     android:layout_alignParentLeft="true"
-	     android:onClick="pointTime"/>
-
-     <CheckBox
-         android:id="@+id/sonCheckbox"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_below="@+id/dureePointButton"
-         android:onClick="isSon"
-         android:text="@string/son" />
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+   <PreferenceCategory
+   android:summary="@string/reglages_morse_description"
+   android:title="@string/reglages_morse" >
+   <ListPreference
+     android:id="@+id/dureePointListPreference"
+     android:entries="@array/pointTimeArray_options"
+     android:entryValues="@array/pointTimeArray_values"
+     android:key="dureePointListKey"
+     android:summary=""
+     android:title="@string/duree_point" />
+ </PreferenceCategory>
+ <PreferenceCategory
+   android:summary="@string/interactions_description"
+   android:title="@string/interactions" >
+	<CheckBoxPreference
+	    android:id="@+id/sonCheckbox"
+        android:text="@string/son"
+     	android:key="sonCheckBox"
+     	android:summary=""
+     	android:title="@string/son" />
      
-     <CheckBox
+     <CheckBoxPreference
          android:id="@+id/vibreurCheckbox"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_below="@+id/sonCheckbox"
-         android:onClick="isVibreur"
-         android:text="@string/vibreur" />
+         android:text="@string/vibreur"
+     	android:key="vibreurCheckBox"
+     	android:summary=""
+     	android:title="@string/vibreur" />
      
-     <CheckBox
+     <CheckBoxPreference
          android:id="@+id/flashCheckbox"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_below="@+id/vibreurCheckbox"
-         android:onClick="isFlash"
-         android:text="@string/flash" />
-
-</RelativeLayout>
+         android:text="@string/flash"
+     	android:key="flashCheckBox"
+     	android:summary=""
+     	android:title="@string/flash" />
+ </PreferenceCategory>
+</PreferenceScreen>

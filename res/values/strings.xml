@@ -5,14 +5,29 @@
     <string name="hello_world">Hello World!</string>
     <string name="parametres">Paramètres</string>
     <string name="quitter">Quitter</string>
-    <string name="duree_point">Durée d\'un point (ms)</string>
-    <string name="ok">Ok</string>
+    <string name="duree_point">Durée d\'un point</string>
     <string name="annuler">Annuler</string>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="grey">#999999</color>
+    <string name="ok">OK</string>
     <string name="vibreur">Vibreur</string>
     <string name="son">Son</string>
     <string name="flash">Flash</string>
-
+    <string name="interactions">Intéractions</string>
+    <string name="interactions_description">Réglages liés aux intéractions</string>
+    <string name="reglages_morse_description">Réglage des paramètres liés au morse</string>
+    <string name="reglages_morse">Réglages morse</string>
+    <string-array name="pointTimeArray_options">
+        <item>100 ms</item>
+     	<item>200 ms</item>
+     	<item>300 ms</item>
+     	<item>400 ms</item>
+     	<item>500 ms</item>
+    </string-array>
+ 
+   <string-array name="pointTimeArray_values">
+     	<item>100</item>
+     	<item>200</item>
+     	<item>300</item>
+     	<item>400</item>
+     	<item>500</item>
+   </string-array>
 </resources>
