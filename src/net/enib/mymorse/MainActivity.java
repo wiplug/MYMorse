@@ -16,15 +16,16 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	
-	private Intent intentNameActivity;
+	private Intent intentParametresActivity;
+	private Intent intentConverterActivity;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		intentNameActivity = new Intent(MainActivity.this, ParametresActivity.class);
+		intentParametresActivity = new Intent(MainActivity.this, ParametresActivity.class);
+		intentConverterActivity = new Intent(MainActivity.this, ConverterActivity.class);
 		setContentView(R.layout.activity_main);
-		LatinMorseConverter morseConverter = new LatinMorseConverter();
 		//Log.d("MainActivity", "Start");
 	}
 	
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
            case R.id.parametres:
-        	   startActivityForResult(intentNameActivity, 1);
+        	   startParameters(this.findViewById(R.id.parametres));
               //Toast.makeText(MainActivity.this, R.string.parametres, Toast.LENGTH_SHORT).show();
               return true;
           case R.id.quitter:
@@ -51,8 +52,19 @@ public class MainActivity extends Activity {
     	TextView title = (TextView) v.findViewById(R.id.title);
     	if(title.getText().toString().equalsIgnoreCase(getString(R.string.MYMorse))){
     		title.setText(R.string.mMYMorse);
+    		//title.setTextSize(38);
+    		//title.setSingleLine(true);
     	} else {
     		title.setText(R.string.MYMorse);
+    		//title.setTextSize(45);
     	}
+    }
+    
+    public void startParameters(View v){
+    	startActivityForResult(intentParametresActivity, 1);
+    }
+    
+    public void startConverter(View v){
+    	startActivityForResult(intentConverterActivity, 2);
     }
 }

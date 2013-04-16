@@ -11,8 +11,8 @@
         android:gravity="center"
         android:text="@string/MYMorse"
         android:onClick="swapTitle"
-        android:textSize="28sp"
-        android:paddingTop="20dp"
+        android:textSize="45sp"
+        android:paddingTop="30dp"
         android:clickable="true" />
 
     <TextView
@@ -23,6 +23,30 @@
         android:layout_below="@+id/title"
         android:text="@string/MaximeYoannMorse"
         android:gravity="center"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/converterButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/subTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/convertisseur"
+        android:onClick="startConverter" />
+    
+    <Button
+        android:id="@+id/parametersButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/converterButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/parametres"
+        android:onClick="startParameters" />
 
 </RelativeLayout>

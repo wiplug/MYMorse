@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name="net.enib.mymorse.ParametresActivity"></activity>
+        <activity android:name="net.enib.mymorse.ConverterActivity"></activity>
     </application>
 
 </manifest>

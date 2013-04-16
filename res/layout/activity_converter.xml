@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/texte"
+        android:textSize="30sp"
+        android:paddingTop="30dp"
+        android:clickable="true" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/text"
+        android:ems="10"
+        android:inputType="textMultiLine|textNoSuggestions" />
+
+    <TextView
+        android:id="@+id/morse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:paddingTop="30dp"
+        android:text="@string/morse" />
+
+    <EditText
+        android:id="@+id/editMorse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/morse"
+        android:ems="10"
+        android:inputType="textMultiLine|textNoSuggestions" />
+
+</RelativeLayout>

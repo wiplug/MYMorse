@@ -1,7 +1,6 @@
 <resources>
 
     <string name="app_name">MYMorse</string>
-    <!-- Je suis Yoann et j'aime le PC !! -->
     <string name="hello_world">Hello World!</string>
     <string name="parametres">Paramètres</string>
     <string name="quitter">Quitter</string>
@@ -15,6 +14,9 @@
     <string name="interactions_description">Réglages liés aux intéractions</string>
     <string name="reglages_morse_description">Réglage des paramètres liés au morse</string>
     <string name="reglages_morse">Réglages morse</string>
+    <string name="convertisseur">Convertisseur</string>
+    <string name="texte">Texte :</string>
+    <string name="morse">Morse :</string>
     <string-array name="pointTimeArray_options">
         <item>100 ms</item>
      	<item>200 ms</item>
