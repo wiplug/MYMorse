@@ -18,20 +18,21 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int converterButton=0x7f070006;
-        public static final int dureePointListPreference=0x7f070008;
+        public static final int converterButton=0x7f070007;
+        public static final int dureePointListPreference=0x7f070009;
         public static final int editMorse=0x7f070003;
         public static final int editText=0x7f070001;
-        public static final int flashCheckbox=0x7f07000b;
+        public static final int flashCheckbox=0x7f07000c;
         public static final int morse=0x7f070002;
-        public static final int parametersButton=0x7f070007;
-        public static final int parametres=0x7f07000c;
-        public static final int quitter=0x7f07000d;
-        public static final int sonCheckbox=0x7f070009;
-        public static final int subTitle=0x7f070005;
+        public static final int parametersButton=0x7f070008;
+        public static final int parametres=0x7f07000d;
+        public static final int playMorse=0x7f070004;
+        public static final int quitter=0x7f07000e;
+        public static final int sonCheckbox=0x7f07000a;
+        public static final int subTitle=0x7f070006;
         public static final int text=0x7f070000;
-        public static final int title=0x7f070004;
-        public static final int vibreurCheckbox=0x7f07000a;
+        public static final int title=0x7f070005;
+        public static final int vibreurCheckbox=0x7f07000b;
     }
     public static final class layout {
         public static final int activity_converter=0x7f030000;
@@ -40,8 +41,12 @@ public final class R {
         public static final int menu=0x7f030003;
     }
     public static final class string {
-        public static final int MYMorse=0x7f040011;
-        public static final int MaximeYoannMorse=0x7f040013;
+        public static final int DUREEPOINTLISTKEY=0x7f040013;
+        public static final int FLASHCHECKBOXKEY=0x7f040016;
+        public static final int MYMorse=0x7f040018;
+        public static final int MaximeYoannMorse=0x7f04001a;
+        public static final int SONCHECKBOXKEY=0x7f040014;
+        public static final int VIBREURCHECKBOXKEY=0x7f040015;
         public static final int annuler=0x7f040005;
         public static final int app_name=0x7f040000;
         public static final int convertisseur=0x7f04000e;
@@ -50,10 +55,13 @@ public final class R {
         public static final int hello_world=0x7f040001;
         public static final int interactions=0x7f04000a;
         public static final int interactions_description=0x7f04000b;
-        public static final int mMYMorse=0x7f040012;
+        public static final int mMYMorse=0x7f040019;
         public static final int morse=0x7f040010;
         public static final int ok=0x7f040006;
         public static final int parametres=0x7f040002;
+        public static final int permDesc_flashlight=0x7f040012;
+        public static final int permLab_flashlight=0x7f040011;
+        public static final int playMorse=0x7f040017;
         public static final int quitter=0x7f040003;
         public static final int reglages_morse=0x7f04000d;
         public static final int reglages_morse_description=0x7f04000c;

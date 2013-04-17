@@ -43,4 +43,13 @@
         android:ems="10"
         android:inputType="textMultiLine|textNoSuggestions" />
 
+    <Button
+        android:id="@+id/playMorse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editMorse"
+        android:text="@string/playMorse"
+        android:onClick="playMorse" />
+
 </RelativeLayout>

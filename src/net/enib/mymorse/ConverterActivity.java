@@ -7,6 +7,10 @@ import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.text.Spanned;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
@@ -17,12 +21,14 @@ public class ConverterActivity extends Activity {
 	private EditText morseField;
 	private TextWatcher textTextWatcher;
 	private TextWatcher morseTextWatcher;
+	private InterfacesController interfaceController;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		morseConverter = new LatinMorseConverter();
+		interfaceController = new InterfacesController(this);
 		setContentView(R.layout.activity_converter);
 		textField = (EditText) this.findViewById(R.id.editText);
 		morseField = (EditText) this.findViewById(R.id.editMorse);
@@ -90,5 +96,9 @@ public class ConverterActivity extends Activity {
 		    	textField.setText(morseConverter.morseToLatinString(s.toString()));
 		    }
 		};
+	}
+	
+	public void playMorse(View v){
+		interfaceController.playMorse(morseField.getText().toString());
 	}
 }
