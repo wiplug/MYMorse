@@ -70,6 +70,18 @@ public class ConverterActivity extends Activity {
 		morseField.setFilters(new InputFilter[]{ pointUnderscore});
 	}
 	
+	@Override
+    protected void onResume() {
+        super.onResume();
+        interfaceController.onResume();
+    }
+	
+	@Override
+    protected void onPause() {
+        super.onPause();
+        interfaceController.onPause();
+    }
+	
 	private void initTextWatcher(){
 		textTextWatcher = new TextWatcher() {
 			 

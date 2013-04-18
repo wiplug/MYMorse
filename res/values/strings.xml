@@ -25,6 +25,8 @@
 	<string name="FLASHCHECKBOXKEY">flashCheckBox</string>
 	<string name="playMorse">Play Morse</string>
     <string-array name="pointTimeArray_options">
+        <item>25 ms</item>
+        <item>50 ms</item>
         <item>100 ms</item>
      	<item>200 ms</item>
      	<item>300 ms</item>
@@ -33,6 +35,8 @@
     </string-array>
  
    <string-array name="pointTimeArray_values">
+       	<item>25</item>
+       	<item>50</item>
      	<item>100</item>
      	<item>200</item>
      	<item>300</item>

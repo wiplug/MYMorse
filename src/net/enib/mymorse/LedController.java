@@ -2,44 +2,49 @@ package net.enib.mymorse;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
+import android.util.Log;
 
 public class LedController implements InterfaceControllerInterface {
 
 	private Camera mCamera;
 	
 	public LedController(){
-		
 	}
 	
-	private void safeCameraOpen(int id) {
-	    try {
-	        releaseCameraAndPreview();
-	        mCamera = Camera.open(id);
+	public void initCamera(int id){
+		 try {
+		        releaseCameraAndPreview();
+		        mCamera = Camera.open(id);
+		        Parameters p = mCamera.getParameters();
+				p.setFlashMode(Parameters.FLASH_MODE_OFF);
+				mCamera.setParameters(p);
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+	}
+	
+	@Override
+	public void turnOn() {
 	        Parameters p = mCamera.getParameters();
 			p.setFlashMode(Parameters.FLASH_MODE_TORCH);
 			mCamera.setParameters(p);
-			mCamera.startPreview();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
 	}
+	
+	
 
-	private void releaseCameraAndPreview() {
+	public void releaseCameraAndPreview() {
 	    if (mCamera != null) {
 	    	mCamera.stopPreview();
 	        mCamera.release();
 	        mCamera = null;
 	    }
 	}
-	
-	@Override
-	public void turnOn() {
-		safeCameraOpen(0);
-	}
 
 	@Override
 	public void turnOff() {
-		releaseCameraAndPreview();
+		Parameters p = mCamera.getParameters();
+		p.setFlashMode(Parameters.FLASH_MODE_OFF);
+		mCamera.setParameters(p);
 	}
 
 }
