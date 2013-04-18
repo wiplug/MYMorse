@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class InterfacesController extends AbstractInterfaceController /*implements Runnable*/ {
-
+	
 	private LedController ledController = null;
 	private VibratorController vibratorController = null;
 	private SoundController soundController = null;
@@ -51,6 +51,7 @@ public class InterfacesController extends AbstractInterfaceController /*implemen
 	
 	@Override
 	public void pointOn(int pointTime) {
+		
 		if(ledController != null && isFlashEnabled()){
 			ledController.pointOn(pointTime);
 		}
