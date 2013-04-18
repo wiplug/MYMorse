@@ -8,22 +8,16 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
-import android.view.View;
 import android.view.Window;
-import android.widget.CheckBox;
-import android.widget.Toast;
 
 public class ParametresActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener{
 
-	ListPreference dureePointList;
-	CheckBoxPreference sonCheckbox;
-	CheckBoxPreference vibreurCheckbox;
-	CheckBoxPreference flashCheckbox;
+	private ListPreference dureePointList;
+	private CheckBoxPreference sonCheckbox;
+	private CheckBoxPreference vibreurCheckbox;
+	private CheckBoxPreference flashCheckbox;
 	
-	SharedPreferences sharedPreferences;
+	private SharedPreferences sharedPreferences;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

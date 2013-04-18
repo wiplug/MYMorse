@@ -3,12 +3,10 @@ package net.enib.mymorse;
 import java.util.Hashtable;
 import java.util.Map;
 
-import android.util.Log;
-
 public class LatinMorseConverter {
 	
-	Map<String,String> latinAlphabet;
-	Map<String,String> morseAlphabet;
+	private Map<String,String> latinAlphabet;
+	private Map<String,String> morseAlphabet;
 	
 	public LatinMorseConverter(){
 		String alphabetTable[] = {
@@ -57,9 +55,6 @@ public class LatinMorseConverter {
 			latinAlphabet.put(alphabetTable[i], alphabetTable[i+1]);
 			morseAlphabet.put(alphabetTable[i+1], alphabetTable[i]);
 		}
-		
-		//Log.d("MorseConverter", "MYMorse : "+latinToMorseString("MYMorse lala"));
-		//Log.d("MorseConverter", "MYMorse : "+morseToLatinString(latinToMorseString("MYMorse lala")));
 	}
 	
 	private String latinToMorseChar(Character c){

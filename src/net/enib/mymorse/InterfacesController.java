@@ -4,19 +4,22 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
-public class InterfacesController extends AbstractInterfaceController /*implements Runnable*/ {
+public class InterfacesController implements InterfaceControllerInterface {
 	
 	private LedController ledController = null;
 	private VibratorController vibratorController = null;
 	private SoundController soundController = null;
-	SharedPreferences sharedPreferences;
+	private SharedPreferences sharedPreferences;
 	
 	private String SONCHECKBOXKEY;
 	private String VIBREURCHECKBOXKEY;
 	private String FLASHCHECKBOXKEY;
 	private String DUREEPOINTLISTKEY;
+	
+	private final int POINT_UNIT = 1;
+	private final int TRAIT_UNIT = 3;
+	private final int SLASH_UNIT = 7;
 	
 	public InterfacesController(Activity a){
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(a);
@@ -46,33 +49,69 @@ public class InterfacesController extends AbstractInterfaceController /*implemen
 			} else if(s.equalsIgnoreCase("/")){
 				slash(pointTime);
 			}
+			try{
+				Thread.sleep(pointTime*POINT_UNIT);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	@Override
-	public void pointOn(int pointTime) {
-		
+	public void turnOn() {
 		if(ledController != null && isFlashEnabled()){
-			ledController.pointOn(pointTime);
+			ledController.turnOn();
 		}
 		if(isSonEnabled()){
-			soundController.pointOn(pointTime);
+			soundController.turnOn();
 		}
 		if(vibratorController.hasVibrator() && isVibreurEnabled()){
-			vibratorController.pointOn(pointTime);
+			vibratorController.turnOn();
 		}
 	}
 
 	@Override
-	public void traitOn(int pointTime) {
-		if(ledController != null && isFlashEnabled()){
-			ledController.traitOn(pointTime);
+	public void turnOff() {
+		if(ledController != null){
+			ledController.turnOff();
 		}
-		if(isSonEnabled()){
-			soundController.traitOn(pointTime);
+		soundController.turnOff();
+		vibratorController.turnOff();
+	}
+	
+	private void pointOn(int pointTime) {
+		turnOn();
+		try{
+			Thread.sleep(pointTime*POINT_UNIT);
+		} catch (Exception e){
+			e.printStackTrace();
 		}
-		if(isVibreurEnabled()){
-			vibratorController.traitOn(pointTime);
+		turnOff();
+	}
+
+	private void traitOn(int pointTime) {
+		turnOn();
+		try{
+			Thread.sleep(pointTime*TRAIT_UNIT);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		turnOff();
+	}
+	
+	private void espace(int pointTime) {
+		try{
+			Thread.sleep(pointTime*TRAIT_UNIT);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private void slash(int pointTime) {
+		try{
+			Thread.sleep(pointTime*SLASH_UNIT);
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 	

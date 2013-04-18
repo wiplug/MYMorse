@@ -3,39 +3,15 @@ package net.enib.mymorse;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 
-public class LedController extends AbstractInterfaceController {
+public class LedController implements InterfaceControllerInterface {
 
-	Camera mCamera;
+	private Camera mCamera;
 	
 	public LedController(){
-		super();
+		
 	}
 	
-	@Override
-	public void pointOn(int pointTime) {
-		safeCameraOpen(0);
-		try{
-			Thread.sleep(pointTime*POINT_UNIT);
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-		releaseCameraAndPreview();
-	}
-
-	@Override
-	public void traitOn(int pointTime) {
-		safeCameraOpen(0);
-		try{
-			Thread.sleep(pointTime*TRAIT_UNIT);
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-		releaseCameraAndPreview();
-	}
-	
-	private boolean safeCameraOpen(int id) {
-	    boolean qOpened = false;
-	  
+	private void safeCameraOpen(int id) {
 	    try {
 	        releaseCameraAndPreview();
 	        mCamera = Camera.open(id);
@@ -43,21 +19,27 @@ public class LedController extends AbstractInterfaceController {
 			p.setFlashMode(Parameters.FLASH_MODE_TORCH);
 			mCamera.setParameters(p);
 			mCamera.startPreview();
-	        qOpened = (mCamera != null);
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-
-	    return qOpened;    
 	}
 
 	private void releaseCameraAndPreview() {
-	    //mPreview.setCamera(null);
 	    if (mCamera != null) {
 	    	mCamera.stopPreview();
 	        mCamera.release();
 	        mCamera = null;
 	    }
+	}
+	
+	@Override
+	public void turnOn() {
+		safeCameraOpen(0);
+	}
+
+	@Override
+	public void turnOff() {
+		releaseCameraAndPreview();
 	}
 
 }

@@ -1,17 +1,18 @@
 package net.enib.mymorse;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 public class ConverterActivity extends Activity {
@@ -23,10 +24,14 @@ public class ConverterActivity extends Activity {
 	private TextWatcher morseTextWatcher;
 	private InterfacesController interfaceController;
 	
+	private Intent intentParametresActivity;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 		super.onCreate(savedInstanceState);
+		intentParametresActivity = new Intent(ConverterActivity.this, ParametresActivity.class);
 		morseConverter = new LatinMorseConverter();
 		interfaceController = new InterfacesController(this);
 		setContentView(R.layout.activity_converter);
@@ -63,7 +68,6 @@ public class ConverterActivity extends Activity {
 		};
 		textField.setFilters(new InputFilter[]{ alphaNumericFilter});
 		morseField.setFilters(new InputFilter[]{ pointUnderscore});
-		//Log.d("ConverterActivity", "Start");
 	}
 	
 	private void initTextWatcher(){
@@ -97,6 +101,28 @@ public class ConverterActivity extends Activity {
 		    }
 		};
 	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.layout.menu, menu);
+        return true;
+     }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+           case R.id.parametres:
+        	   startParameters(this.findViewById(R.id.parametres));
+              return true;
+          case R.id.quitter:
+              finish();
+              return true;
+        }
+        return false;
+     }
+    
+    public void startParameters(View v){
+    	startActivityForResult(intentParametresActivity, 1);
+    }
 	
 	public void playMorse(View v){
 		interfaceController.playMorse(morseField.getText().toString());

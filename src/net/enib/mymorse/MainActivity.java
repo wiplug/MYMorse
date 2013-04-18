@@ -4,14 +4,12 @@ import net.enib.mymorse.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -39,7 +37,6 @@ public class MainActivity extends Activity {
         switch (item.getItemId()) {
            case R.id.parametres:
         	   startParameters(this.findViewById(R.id.parametres));
-              //Toast.makeText(MainActivity.this, R.string.parametres, Toast.LENGTH_SHORT).show();
               return true;
           case R.id.quitter:
               finish();
@@ -48,15 +45,12 @@ public class MainActivity extends Activity {
         return false;}
     
     public void swapTitle(View v){
-    	//Log.d("MainActivity", "swapTitle");
     	TextView title = (TextView) v.findViewById(R.id.title);
     	if(title.getText().toString().equalsIgnoreCase(getString(R.string.MYMorse))){
     		title.setText(R.string.mMYMorse);
-    		//title.setTextSize(38);
-    		//title.setSingleLine(true);
+    		title.setSingleLine(true);
     	} else {
     		title.setText(R.string.MYMorse);
-    		//title.setTextSize(45);
     	}
     }
     

@@ -4,27 +4,26 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Vibrator;
 
-public class VibratorController extends AbstractInterfaceController {
+public class VibratorController implements InterfaceControllerInterface {
 
 	private Vibrator mVibrator;
+	private final int MAX_VIBRATE = 10000;
 	
 	public VibratorController(Activity a){
-		super();
 		mVibrator = (Vibrator) a.getSystemService(Context.VIBRATOR_SERVICE);
 	}
 	
 	public boolean hasVibrator(){
 		return mVibrator.hasVibrator();
 	}
-	
+
 	@Override
-	public void pointOn(int pointTime) {
-		mVibrator.vibrate(pointTime*POINT_UNIT);
+	public void turnOn(){
+		mVibrator.vibrate(MAX_VIBRATE);
 	}
 
 	@Override
-	public void traitOn(int pointTime) {
-		mVibrator.vibrate(pointTime*TRAIT_UNIT);
+	public void turnOff(){
+		mVibrator.cancel();
 	}
-
 }

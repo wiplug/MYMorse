@@ -1,20 +1,18 @@
 package net.enib.mymorse;
 
-public class SoundController extends AbstractInterfaceController {
+public class SoundController implements InterfaceControllerInterface {
 
 	public SoundController(){
-		super();
-		
-	}
-	
-	@Override
-	public void pointOn(int pointTime) {
 		
 	}
 
 	@Override
-	public void traitOn(int pointTime) {
+	public void turnOn(){
 		
 	}
 
+	@Override
+	public void turnOff(){
+		
+	}
 }
