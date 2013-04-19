@@ -2,12 +2,13 @@ package net.enib.mymorse;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class InterfacesController implements InterfaceControllerInterface {
+	
+	private ConverterActivity parent;
 	
 	private LedController ledController = null;
 	private VibratorController vibratorController = null;
@@ -25,9 +26,12 @@ public class InterfacesController implements InterfaceControllerInterface {
 	
 	private String morseString;
 	
-	private PlayMorseAsyncTask playThread;
+	private PlayMorseAsyncTask playThread = null;
 	
-	public InterfacesController(Activity a){
+	public InterfacesController(ConverterActivity a){
+		
+		parent = a;
+		
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(a);
 		
 		SONCHECKBOXKEY = a.getString(R.string.SONCHECKBOXKEY);
@@ -35,26 +39,28 @@ public class InterfacesController implements InterfaceControllerInterface {
 		FLASHCHECKBOXKEY = a.getString(R.string.FLASHCHECKBOXKEY);
 		DUREEPOINTLISTKEY = a.getString(R.string.DUREEPOINTLISTKEY);
 		
-		//playThread = new PlayMorseAsyncTask();
+		playThread = new PlayMorseAsyncTask();
 		
-		if(a.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
-			ledController = new LedController();
-			Log.d("InterfaceController", "Flash");
-		}
+		//if(a.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+		ledController = new LedController();
 		vibratorController = new VibratorController(a);
 		soundController = new SoundController();
 	}
 	
 	public void playMorse(String morseString){
 		this.morseString = morseString;
-		//playThread.stopThread();
+		playThread.stopThread();
+		parent.setMorseProgress(0);
 		playThread = new PlayMorseAsyncTask();
 		playThread.execute(morseString);
 		
 	}
 	
 	public void onPause(){
-		playThread.stopThread();
+		if(playThread != null){
+			playThread.stopThread();
+		}
+		while(playThread.stop && playThread.getStatus()==AsyncTask.Status.RUNNING){}
 		ledController.releaseCameraAndPreview();
 	}
 	
@@ -64,7 +70,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 	
 	@Override
 	public void turnOn() {
-		if(ledController != null && isFlashEnabled()){
+		if(isFlashEnabled()){
 			ledController.turnOn();
 			Log.d("InterfaceController", "led on");
 		}
@@ -78,9 +84,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 
 	@Override
 	public void turnOff() {
-		if(ledController != null){
-			ledController.turnOff();
-		}
+		ledController.turnOff();
 		soundController.turnOff();
 		vibratorController.turnOff();
 	}
@@ -136,7 +140,6 @@ public class InterfacesController implements InterfaceControllerInterface {
 	private int getDureePoint(){
 		return Integer.parseInt(sharedPreferences.getString(DUREEPOINTLISTKEY, ""));
 	}
-
 	
 	private class PlayMorseAsyncTask extends AsyncTask<String, Void, Void>{
 	
@@ -150,8 +153,9 @@ public class InterfacesController implements InterfaceControllerInterface {
 		protected Void doInBackground(String... params) {
 			int pointTime = getDureePoint();
 			for (int i=0; i<(morseString.length()); i++){
-				if (stop)
+				if (stop){
 					break;
+				}
 				String s = String.valueOf(params[0].charAt(i));
 				if(s.equalsIgnoreCase(".")){
 					pointOn(pointTime);
@@ -162,12 +166,12 @@ public class InterfacesController implements InterfaceControllerInterface {
 				} else if(s.equalsIgnoreCase("/")){
 					slash(pointTime);
 				}
+				parent.setMorseProgress(100*(i+1)/(morseString.length()));
 				try{
 					Thread.sleep(pointTime*POINT_UNIT);
 				} catch (Exception e){
 					e.printStackTrace();
 				}
-				
 			}
 			stop=false;
 			return null;

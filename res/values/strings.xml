@@ -10,6 +10,8 @@
     <string name="vibreur">Vibreur</string>
     <string name="son">Son</string>
     <string name="flash">Flash</string>
+    <string name="active">activé</string>
+    <string name="desactive">desactivé</string>
     <string name="interactions">Intéractions</string>
     <string name="interactions_description">Réglages liés aux intéractions</string>
     <string name="reglages_morse_description">Réglage des paramètres liés au morse</string>
@@ -46,4 +48,5 @@
    <string name="MYMorse"><b>MYMorse</b></string>
    <string name="mMYMorse"><b>__ _.__ __ ___ ._. ... .</b></string>
    <string name="MaximeYoannMorse"><b>M</b>axime <b>Y</b>oann <b>Morse</b></string>
+   <color name="rouge">#F00</color>
 </resources>

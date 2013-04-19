@@ -14,12 +14,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 public class ConverterActivity extends Activity {
 
 	private LatinMorseConverter morseConverter;
+	
 	private EditText textField;
 	private EditText morseField;
+	private ProgressBar progressBar;
+	
 	private TextWatcher textTextWatcher;
 	private TextWatcher morseTextWatcher;
 	private InterfacesController interfaceController;
@@ -37,6 +41,7 @@ public class ConverterActivity extends Activity {
 		setContentView(R.layout.activity_converter);
 		textField = (EditText) this.findViewById(R.id.editText);
 		morseField = (EditText) this.findViewById(R.id.editMorse);
+		progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
 		initTextWatcher();
 		morseField.addTextChangedListener(morseTextWatcher);
 		textField.addTextChangedListener(textTextWatcher);
@@ -138,5 +143,9 @@ public class ConverterActivity extends Activity {
 	
 	public void playMorse(View v){
 		interfaceController.playMorse(morseField.getText().toString());
+	}
+	
+	public void setMorseProgress(int progress){
+		progressBar.setProgress(progress);
 	}
 }
