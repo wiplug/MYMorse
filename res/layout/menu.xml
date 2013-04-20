@@ -3,6 +3,6 @@
 	      android:title="@string/parametres">
 	</item>
 	<item android:id="@+id/quitter" 
-	      android:title="@string/quitter">
+	      android:title="@string/quit">
 	</item>
 </menu>

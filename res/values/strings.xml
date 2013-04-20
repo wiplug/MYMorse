@@ -1,15 +1,16 @@
 <resources>
 
     <string name="app_name">MYMorse</string>
-    <string name="hello_world">Hello World!</string>
     <string name="parametres">Paramètres</string>
-    <string name="quitter">Quitter</string>
+    <string name="quit">Quitter</string>
     <string name="duree_point">Durée d\'un point</string>
     <string name="annuler">Annuler</string>
     <string name="ok">OK</string>
     <string name="vibreur">Vibreur</string>
     <string name="son">Son</string>
     <string name="flash">Flash</string>
+    <string name="active">activé</string>
+    <string name="desactive">desactivé</string>
     <string name="interactions">Intéractions</string>
     <string name="interactions_description">Réglages liés aux intéractions</string>
     <string name="reglages_morse_description">Réglage des paramètres liés au morse</string>
@@ -24,14 +25,19 @@
 	<string name="VIBREURCHECKBOXKEY">vibreurCheckBox</string>
 	<string name="FLASHCHECKBOXKEY">flashCheckBox</string>
 	<string name="playMorse">Play Morse</string>
+	<string name="aboutus">A propos</string>
+	<string name="maxime_feron"><b>Maxime Feron</b></string>
+	<string name="yoann_le_petit"><b>Yoann Le Petit</b></string>
+	<string name="mail_maxime_feron">m8feron@enib.fr</string>
+	<string name="mail_yoann_le_petit">y8lepeti@enib.fr</string>
+	<string name="s9info">S9 Informatique</string>
+	<string name="enib">ENIB</string>
     <string-array name="pointTimeArray_options">
         <item>25 ms</item>
         <item>50 ms</item>
         <item>100 ms</item>
      	<item>200 ms</item>
      	<item>300 ms</item>
-     	<item>400 ms</item>
-     	<item>500 ms</item>
     </string-array>
  
    <string-array name="pointTimeArray_values">
@@ -40,10 +46,9 @@
      	<item>100</item>
      	<item>200</item>
      	<item>300</item>
-     	<item>400</item>
-     	<item>500</item>
    </string-array>
    <string name="MYMorse"><b>MYMorse</b></string>
    <string name="mMYMorse"><b>__ _.__ __ ___ ._. ... .</b></string>
    <string name="MaximeYoannMorse"><b>M</b>axime <b>Y</b>oann <b>Morse</b></string>
+   <color name="rouge">#F00</color>
 </resources>

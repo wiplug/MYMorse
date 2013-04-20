@@ -33,11 +33,11 @@ public class ParametresActivity extends PreferenceActivity implements OnSharedPr
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		dureePointList.setSummary(sharedPreferences.getString(getString(R.string.DUREEPOINTLISTKEY), "") + " ms");
 		sonCheckbox.setChecked(sharedPreferences.getBoolean(getString(R.string.SONCHECKBOXKEY), false));
-		sonCheckbox.setSummary(sharedPreferences.getBoolean(getString(R.string.SONCHECKBOXKEY), false) ? "Son activé" : "Son désactivé");
+		sonCheckbox.setSummary(getString(R.string.son) + " "+ (sharedPreferences.getBoolean(getString(R.string.SONCHECKBOXKEY), false) ? getString(R.string.active) : getString(R.string.desactive)));
 		vibreurCheckbox.setChecked(sharedPreferences.getBoolean(getString(R.string.VIBREURCHECKBOXKEY), false));
-		vibreurCheckbox.setSummary(sharedPreferences.getBoolean(getString(R.string.VIBREURCHECKBOXKEY), false) ? "Vibreur activé" : "Vibreur désactivé");
+		vibreurCheckbox.setSummary(getString(R.string.vibreur) + " "+ (sharedPreferences.getBoolean(getString(R.string.VIBREURCHECKBOXKEY), false) ? getString(R.string.active) : getString(R.string.desactive)));
 		flashCheckbox.setChecked(sharedPreferences.getBoolean(getString(R.string.FLASHCHECKBOXKEY), false));
-		flashCheckbox.setSummary(sharedPreferences.getBoolean(getString(R.string.FLASHCHECKBOXKEY), false) ? "Flash activé" : "Flash désactivé");
+		flashCheckbox.setSummary(getString(R.string.flash) + " "+ (sharedPreferences.getBoolean(getString(R.string.FLASHCHECKBOXKEY), false) ? getString(R.string.active) : getString(R.string.desactive)));
 		
 		//Log.d("ParametreActivity", "Start");
 		

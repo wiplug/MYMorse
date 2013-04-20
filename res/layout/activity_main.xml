@@ -11,7 +11,7 @@
         android:gravity="center"
         android:text="@string/MYMorse"
         android:onClick="swapTitle"
-        android:textSize="45sp"
+        android:textSize="35sp"
         android:paddingTop="30dp"
         android:clickable="true" />
 
@@ -48,5 +48,29 @@
         android:layout_marginTop="10dp"
         android:text="@string/parametres"
         android:onClick="startParameters" />
+    
+    <Button
+        android:id="@+id/AboutUsButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/parametersButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/aboutus"
+        android:onClick="startAboutUs" />
+    
+    <Button
+        android:id="@+id/QuitButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/AboutUsButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/quit"
+        android:onClick="quit" />
 
 </RelativeLayout>
