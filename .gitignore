@@ -1,3 +1,4 @@
 .DS_Store
-bin/*
-gen/net/enib/mymorse/R.java
+bin
+
+
