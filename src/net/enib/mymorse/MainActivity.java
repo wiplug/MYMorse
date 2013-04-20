@@ -16,15 +16,16 @@ public class MainActivity extends Activity {
 	
 	private Intent intentParametresActivity;
 	private Intent intentConverterActivity;
+	private Intent intentAboutUsActivity;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 		intentParametresActivity = new Intent(MainActivity.this, ParametresActivity.class);
 		intentConverterActivity = new Intent(MainActivity.this, ConverterActivity.class);
-		setContentView(R.layout.activity_main);
-		//Log.d("MainActivity", "Start");
+		intentAboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
 	}
 	
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +40,7 @@ public class MainActivity extends Activity {
         	   startParameters(this.findViewById(R.id.parametres));
               return true;
           case R.id.quitter:
-              finish();
+        	  quit(this.findViewById(R.id.QuitButton));
               return true;
         }
         return false;}
@@ -60,5 +61,13 @@ public class MainActivity extends Activity {
     
     public void startConverter(View v){
     	startActivityForResult(intentConverterActivity, 2);
+    }
+    
+    public void startAboutUs(View v){
+    	startActivityForResult(intentAboutUsActivity, 3);
+    }
+    
+    public void quit(View v){
+    	finish();
     }
 }

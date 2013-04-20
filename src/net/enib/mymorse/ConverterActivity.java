@@ -1,12 +1,14 @@
 package net.enib.mymorse;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class ConverterActivity extends Activity {
 
@@ -33,15 +36,16 @@ public class ConverterActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_converter);
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 		intentParametresActivity = new Intent(ConverterActivity.this, ParametresActivity.class);
 		morseConverter = new LatinMorseConverter();
 		interfaceController = new InterfacesController(this);
-		setContentView(R.layout.activity_converter);
 		textField = (EditText) this.findViewById(R.id.editText);
 		morseField = (EditText) this.findViewById(R.id.editMorse);
 		progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
+		
 		initTextWatcher();
 		morseField.addTextChangedListener(morseTextWatcher);
 		textField.addTextChangedListener(textTextWatcher);
