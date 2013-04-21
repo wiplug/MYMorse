@@ -156,7 +156,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			parent.setRequestedOrientation(parent.getRequestedOrientation());
 			int pointTime = getDureePoint();
 			for (int i=0; i<(morseString.length()); i++){
 				if (stop){
