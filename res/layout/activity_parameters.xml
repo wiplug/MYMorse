@@ -10,7 +10,7 @@
      android:key="dureePointListKey"
      android:summary=""
      android:title="@string/duree_point"
-     android:defaultValue="400" />
+     android:defaultValue="200" />
  </PreferenceCategory>
  <PreferenceCategory
    android:summary="@string/interactions_description"
@@ -37,6 +37,6 @@
      	android:key="flashCheckBox"
      	android:summary=""
      	android:title="@string/flash" 
-     	android:defaultValue="true" />
+     	android:defaultValue="false" />
  </PreferenceCategory>
 </PreferenceScreen>

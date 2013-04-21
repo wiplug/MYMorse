@@ -16,7 +16,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name">
         <activity
-            android:name="net.enib.mymorse.MainActivity"
+            android:name="net.enib.mymorse.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="net.enib.mymorse.ParametresActivity"></activity>
-        <activity android:name="net.enib.mymorse.ConverterActivity"></activity>
-        <activity android:name="net.enib.mymorse.AboutUsActivity"></activity>
+        <activity android:name="net.enib.mymorse.activity.ParametersActivity"></activity>
+        <activity android:name="net.enib.mymorse.activity.ConverterActivity"></activity>
+        <activity android:name="net.enib.mymorse.activity.AboutUsActivity"></activity>
     </application>
 
 </manifest>

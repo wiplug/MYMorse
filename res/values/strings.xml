@@ -32,6 +32,7 @@
 	<string name="mail_yoann_le_petit">y8lepeti@enib.fr</string>
 	<string name="s9info">S9 Informatique</string>
 	<string name="enib">ENIB</string>
+	<string name="confirmFlash">L\'utilisation du flash peut ne pas fonctionner ou provoquer des disfonctionnements de l\'application, en fonction de modèle de votre téléphone. Êtes-vous sûr de vouloir continuer ?</string>
     <string-array name="pointTimeArray_options">
         <item>25 ms</item>
         <item>50 ms</item>

@@ -1,4 +1,4 @@
-package net.enib.mymorse;
+package net.enib.mymorse.activity;
 
 import net.enib.mymorse.R;
 import android.app.Activity;
@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		intentParametresActivity = new Intent(MainActivity.this, ParametresActivity.class);
+		intentParametresActivity = new Intent(MainActivity.this, ParametersActivity.class);
 		intentConverterActivity = new Intent(MainActivity.this, ConverterActivity.class);
 		intentAboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
 	}

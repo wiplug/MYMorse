@@ -1,10 +1,10 @@
-package net.enib.mymorse;
+package net.enib.mymorse.controller;
 
-import android.app.Activity;
+import net.enib.mymorse.R;
+import net.enib.mymorse.activity.ConverterActivity;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 public class InterfacesController implements InterfaceControllerInterface {
 	
@@ -19,6 +19,11 @@ public class InterfacesController implements InterfaceControllerInterface {
 	private String VIBREURCHECKBOXKEY;
 	private String FLASHCHECKBOXKEY;
 	private String DUREEPOINTLISTKEY;
+	
+	final private boolean DEFAULT_SOUND = true;
+	final private boolean DEFAULT_VIBRATOR = true;
+	final private boolean DEFAULT_LED = false;
+	final private String DEFAULT_TIME = "200";
 	
 	private final int POINT_UNIT = 1;
 	private final int TRAIT_UNIT = 3;
@@ -41,7 +46,6 @@ public class InterfacesController implements InterfaceControllerInterface {
 		
 		playThread = new PlayMorseAsyncTask();
 		
-		//if(a.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
 		ledController = new LedController();
 		vibratorController = new VibratorController(a);
 		soundController = new SoundController();
@@ -72,7 +76,6 @@ public class InterfacesController implements InterfaceControllerInterface {
 	public void turnOn() {
 		if(isFlashEnabled()){
 			ledController.turnOn();
-			Log.d("InterfaceController", "led on");
 		}
 		if(isSonEnabled()){
 			soundController.turnOn();
@@ -126,19 +129,19 @@ public class InterfacesController implements InterfaceControllerInterface {
 	}
 	
 	private boolean isSonEnabled(){
-		return sharedPreferences.getBoolean(SONCHECKBOXKEY, false);
+		return sharedPreferences.getBoolean(SONCHECKBOXKEY, DEFAULT_SOUND);
 	}
 	
 	private boolean isVibreurEnabled(){
-		return sharedPreferences.getBoolean(VIBREURCHECKBOXKEY, false);
+		return sharedPreferences.getBoolean(VIBREURCHECKBOXKEY, DEFAULT_VIBRATOR);
 	}
 	
 	private boolean isFlashEnabled(){
-		return sharedPreferences.getBoolean(FLASHCHECKBOXKEY, false);
+		return sharedPreferences.getBoolean(FLASHCHECKBOXKEY, DEFAULT_LED);
 	}
 	
 	private int getDureePoint(){
-		return Integer.parseInt(sharedPreferences.getString(DUREEPOINTLISTKEY, ""));
+		return Integer.parseInt(sharedPreferences.getString(DUREEPOINTLISTKEY, DEFAULT_TIME));
 	}
 	
 	private class PlayMorseAsyncTask extends AsyncTask<String, Void, Void>{

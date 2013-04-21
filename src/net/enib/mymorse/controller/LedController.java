@@ -1,8 +1,7 @@
-package net.enib.mymorse;
+package net.enib.mymorse.controller;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
-import android.util.Log;
 
 public class LedController implements InterfaceControllerInterface {
 

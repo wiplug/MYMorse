@@ -1,4 +1,4 @@
-package net.enib.mymorse;
+package net.enib.mymorse.controller;
 
 import android.app.Activity;
 import android.content.Context;

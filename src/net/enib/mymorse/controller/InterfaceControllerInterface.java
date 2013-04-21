@@ -1,4 +1,4 @@
-package net.enib.mymorse;
+package net.enib.mymorse.controller;
 
 public interface InterfaceControllerInterface {
 
