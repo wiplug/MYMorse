@@ -3,6 +3,7 @@ package net.enib.mymorse.controller;
 import net.enib.mymorse.R;
 import net.enib.mymorse.activity.ConverterActivity;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
@@ -48,7 +49,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 		
 		ledController = new LedController();
 		vibratorController = new VibratorController(a);
-		soundController = new SoundController();
+		soundController = new SoundController(parent.getAssets());
 	}
 	
 	public void playMorse(String morseString){
@@ -66,6 +67,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 		}
 		while(playThread.stop && playThread.getStatus()==AsyncTask.Status.RUNNING){}
 		ledController.releaseCameraAndPreview();
+		parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 	}
 	
 	public void onResume(){
@@ -154,6 +156,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 
 		@Override
 		protected Void doInBackground(String... params) {
+			parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 			int pointTime = getDureePoint();
 			for (int i=0; i<(morseString.length()); i++){
 				if (stop){
@@ -177,6 +180,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 				}
 			}
 			stop=false;
+			parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 			return null;
 		}
 	}

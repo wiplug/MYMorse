@@ -1,76 +1,92 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" > -->
+        
+	<ScrollView 
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:fillViewport="true" 
+		tools:context=".MainActivity"> 
+        <!--         android:layout_weight="1" -->
+        
+	    <LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/MYMorse"
-        android:onClick="swapTitle"
-        android:textSize="35sp"
-        android:paddingTop="30dp"
-        android:clickable="true" />
-
-    <TextView
-        android:id="@+id/subTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/title"
-        android:text="@string/MaximeYoannMorse"
-        android:gravity="center"
-        android:textSize="20sp"/>
-
-    <Button
-        android:id="@+id/converterButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/subTitle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/convertisseur"
-        android:onClick="startConverter" />
-    
-    <Button
-        android:id="@+id/parametersButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/converterButton"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/parametres"
-        android:onClick="startParameters" />
-    
-    <Button
-        android:id="@+id/AboutUsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/parametersButton"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/aboutus"
-        android:onClick="startAboutUs" />
-    
-    <Button
-        android:id="@+id/QuitButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/AboutUsButton"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/quit"
-        android:onClick="quit" />
-
-</RelativeLayout>
+		    <TextView
+		        android:id="@+id/title"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:text="@string/MYMorse"
+		        android:onClick="swapTitle"
+		        android:textSize="35sp"
+		        android:paddingTop="30dp"
+		        android:clickable="true" />
+		
+		    <TextView
+		        android:id="@+id/subTitle"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/title"
+		        android:text="@string/MaximeYoannMorse"
+		        android:gravity="center"
+		        android:textSize="20sp"/>
+		
+		    <Button
+		        android:id="@+id/converterButton"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/subTitle"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="30dp"
+		        android:text="@string/convertisseur"
+		        android:onClick="startConverter" />
+		    
+		    <Button
+		        android:id="@+id/parametersButton"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/converterButton"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/parametres"
+		        android:onClick="startParameters" />
+		    
+		    <Button
+		        android:id="@+id/AboutUsButton"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/parametersButton"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/aboutus"
+		        android:onClick="startAboutUs" />
+		    
+		    <Button
+		        android:id="@+id/QuitButton"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/AboutUsButton"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/quit"
+		        android:onClick="quit" />
+		</LinearLayout>
+	</ScrollView>
+<!-- </RelativeLayout> -->
