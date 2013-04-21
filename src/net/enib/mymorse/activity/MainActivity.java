@@ -14,18 +14,20 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	
-	private Intent intentParametresActivity;
+	private Intent intentParametersActivity;
 	private Intent intentConverterActivity;
 	private Intent intentAboutUsActivity;
+	private Intent intentDictionaryActivity;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		intentParametresActivity = new Intent(MainActivity.this, ParametersActivity.class);
+		intentParametersActivity = new Intent(MainActivity.this, ParametersActivity.class);
 		intentConverterActivity = new Intent(MainActivity.this, ConverterActivity.class);
 		intentAboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
+		intentDictionaryActivity = new Intent(MainActivity.this, DictionaryActivity.class);
 	}
 	
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,7 +58,11 @@ public class MainActivity extends Activity {
     }
     
     public void startParameters(View v){
-    	startActivityForResult(intentParametresActivity, 1);
+    	startActivityForResult(intentParametersActivity, 1);
+    }
+    
+    public void startDictionary(View v){
+    	startActivityForResult(intentDictionaryActivity, 4);
     }
     
     public void startConverter(View v){

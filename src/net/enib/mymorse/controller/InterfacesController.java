@@ -2,6 +2,7 @@ package net.enib.mymorse.controller;
 
 import net.enib.mymorse.R;
 import net.enib.mymorse.activity.ConverterActivity;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
@@ -9,7 +10,7 @@ import android.preference.PreferenceManager;
 
 public class InterfacesController implements InterfaceControllerInterface {
 	
-	private ConverterActivity parent;
+	private Activity parent;
 	
 	private LedController ledController = null;
 	private VibratorController vibratorController = null;
@@ -34,7 +35,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 	
 	private PlayMorseAsyncTask playThread = null;
 	
-	public InterfacesController(ConverterActivity a){
+	public InterfacesController(Activity a){
 		
 		parent = a;
 		
@@ -55,7 +56,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 	public void playMorse(String morseString){
 		this.morseString = morseString;
 		playThread.stopThread();
-		parent.setMorseProgress(0);
+		//parent.setMorseProgress(0);
 		playThread = new PlayMorseAsyncTask();
 		playThread.execute(morseString);
 		
@@ -67,7 +68,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 		}
 		while(playThread.stop && playThread.getStatus()==AsyncTask.Status.RUNNING){}
 		ledController.releaseCameraAndPreview();
-		parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+		//parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 	}
 	
 	public void onResume(){
@@ -156,12 +157,10 @@ public class InterfacesController implements InterfaceControllerInterface {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			parent.setRequestedOrientation(parent.getRequestedOrientation());
+			//parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+			//parent.setRequestedOrientation(parent.getRequestedOrientation());
 			int pointTime = getDureePoint();
-			for (int i=0; i<(morseString.length()); i++){
-				if (stop){
-					break;
-				}
+			for (int i=0; i<(morseString.length()) && !stop; i++){
 				String s = String.valueOf(params[0].charAt(i));
 				if(s.equalsIgnoreCase(".")){
 					pointOn(pointTime);
@@ -172,7 +171,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 				} else if(s.equalsIgnoreCase("/")){
 					slash(pointTime);
 				}
-				parent.setMorseProgress(100*(i+1)/(morseString.length()));
+				//parent.setMorseProgress(100*(i+1)/(morseString.length()));
 				try{
 					Thread.sleep(pointTime*POINT_UNIT);
 				} catch (Exception e){
@@ -180,7 +179,7 @@ public class InterfacesController implements InterfaceControllerInterface {
 				}
 			}
 			stop=false;
-			parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+			//parent.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 			return null;
 		}
 	}

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AboutUsActivity" > -->
-
-
-        
+  
 	<ScrollView 
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:fillViewport="true" 
-		tools:context=".AboutUsActivity"> 
-        <!--         android:layout_weight="1" -->
+		tools:context=".AboutUsActivity">
         
 	    <LinearLayout
 	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
+	    android:layout_height="wrap_content"
 	    android:orientation="vertical">
         
 		    <TextView
@@ -36,8 +28,6 @@
 		        android:id="@+id/subTitle"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/title"
 		        android:text="@string/MaximeYoannMorse"
 		        android:gravity="center"
 		        android:textSize="20sp"/>
@@ -46,8 +36,6 @@
 		        android:id="@+id/maxime_feron"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/subTitle"
 		        android:text="@string/maxime_feron"
 		        android:paddingTop="30dp"
 		        android:gravity="center"
@@ -57,8 +45,6 @@
 		        android:id="@+id/mail_maxime_feron"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/maxime_feron"
 		        android:text="@string/mail_maxime_feron"
 		        android:gravity="center"
 		        android:textSize="17sp"/>
@@ -67,8 +53,6 @@
 		        android:id="@+id/yoann_le_petit"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/mail_maxime_feron"
 		        android:text="@string/yoann_le_petit"
 		        android:paddingTop="30dp"
 		        android:gravity="center"
@@ -78,8 +62,6 @@
 		        android:id="@+id/mail_yoann_le_petit"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/yoann_le_petit"
 		        android:text="@string/mail_yoann_le_petit"
 		        android:gravity="center"
 		        android:textSize="17sp"/>
@@ -88,8 +70,6 @@
 		        android:id="@+id/s9info"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/mail_yoann_le_petit"
 		        android:text="@string/s9info"
 		        android:paddingTop="30dp"
 		        android:gravity="center"
@@ -98,8 +78,6 @@
 		   	<ImageView
 		      android:layout_width="fill_parent"
 		      android:layout_height="wrap_content"
-		      android:layout_alignParentLeft="true"
-		      android:layout_below="@+id/s9info"
 		      android:gravity="center"
 		      android:paddingTop="30dp"
 		      android:contentDescription="@string/enib"
@@ -107,5 +85,3 @@
 	     
 		</LinearLayout>
 	</ScrollView>
-<!--  -->
-<!-- </RelativeLayout> -->

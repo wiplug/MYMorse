@@ -26,7 +26,7 @@ public class ConverterActivity extends Activity {
 	
 	private EditText textField;
 	private EditText morseField;
-	private ProgressBar progressBar;
+	//private ProgressBar progressBar;
 	
 	private TextWatcher textTextWatcher;
 	private TextWatcher morseTextWatcher;
@@ -46,7 +46,7 @@ public class ConverterActivity extends Activity {
 		interfaceController = new InterfacesController(this);
 		textField = (EditText) this.findViewById(R.id.editText);
 		morseField = (EditText) this.findViewById(R.id.editMorse);
-		progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
+		//progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
 		initTextWatcher();
 		morseField.addTextChangedListener(morseTextWatcher);
 		textField.addTextChangedListener(textTextWatcher);
@@ -150,7 +150,7 @@ public class ConverterActivity extends Activity {
 		interfaceController.playMorse(morseField.getText().toString());
 	}
 	
-	public void setMorseProgress(int progress){
+	/*public void setMorseProgress(int progress){
 		progressBar.setProgress(progress);
-	}
+	}*/
 }

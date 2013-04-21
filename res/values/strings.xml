@@ -33,6 +33,7 @@
 	<string name="mail_yoann_le_petit">y8lepeti@enib.fr</string>
 	<string name="s9info">S9 Informatique</string>
 	<string name="enib">ENIB</string>
+	<string name="dictionary">Dictionnaire</string>
 	<string name="confirmFlash">L\'utilisation du flash peut ne pas fonctionner ou provoquer des disfonctionnements de l\'application, en fonction de modèle de votre téléphone. Êtes-vous sûr de vouloir continuer ?</string>
     <string-array name="pointTimeArray_options">
         <item>25 ms</item>
@@ -52,5 +53,4 @@
    <string name="MYMorse"><b>MYMorse</b></string>
    <string name="mMYMorse"><b>__ _.__ __ ___ ._. ... .</b></string>
    <string name="MaximeYoannMorse"><b>M</b>axime <b>Y</b>oann <b>Morse</b></string>
-   <color name="rouge">#F00</color>
 </resources>

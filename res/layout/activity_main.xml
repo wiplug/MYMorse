@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" > -->
         
 	<ScrollView 
 		xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,12 +6,11 @@
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:fillViewport="true" 
-		tools:context=".MainActivity"> 
-        <!--         android:layout_weight="1" -->
+		tools:context=".MainActivity">
         
 	    <LinearLayout
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="wrap_content"
 		    android:orientation="vertical">
 
 		    <TextView
@@ -34,8 +28,6 @@
 		        android:id="@+id/subTitle"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/title"
 		        android:text="@string/MaximeYoannMorse"
 		        android:gravity="center"
 		        android:textSize="20sp"/>
@@ -44,8 +36,6 @@
 		        android:id="@+id/converterButton"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/subTitle"
 		        android:layout_marginLeft="20dp"
 		        android:layout_marginRight="20dp"
 		        android:layout_marginTop="30dp"
@@ -53,11 +43,19 @@
 		        android:onClick="startConverter" />
 		    
 		    <Button
+		        android:id="@+id/dictionaryButton"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/dictionary"
+		        android:onClick="startDictionary" />
+		    
+		    <Button
 		        android:id="@+id/parametersButton"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/converterButton"
 		        android:layout_marginLeft="20dp"
 		        android:layout_marginRight="20dp"
 		        android:layout_marginTop="10dp"
@@ -68,8 +66,6 @@
 		        android:id="@+id/AboutUsButton"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/parametersButton"
 		        android:layout_marginLeft="20dp"
 		        android:layout_marginRight="20dp"
 		        android:layout_marginTop="10dp"
@@ -80,8 +76,6 @@
 		        android:id="@+id/QuitButton"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/AboutUsButton"
 		        android:layout_marginLeft="20dp"
 		        android:layout_marginRight="20dp"
 		        android:layout_marginTop="10dp"
@@ -89,4 +83,3 @@
 		        android:onClick="quit" />
 		</LinearLayout>
 	</ScrollView>
-<!-- </RelativeLayout> -->
