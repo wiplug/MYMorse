@@ -11,6 +11,7 @@ import android.media.SoundPool.OnLoadCompleteListener;
 public class SoundController implements InterfaceControllerInterface {
 
 	private int soundId;
+	private int playSoundId;
 	private boolean loaded = false;
 	private AssetManager assetManager;
 	private SoundPool soundPool;
@@ -20,7 +21,7 @@ public class SoundController implements InterfaceControllerInterface {
 		
 		AssetFileDescriptor descriptor=null;
 		try {
-			descriptor = assetManager.openFd("morse_court.mp3");
+			descriptor = assetManager.openFd("morse.mp3");
 			
 			soundId = soundPool.load(descriptor, 1);
 			
@@ -39,11 +40,11 @@ public class SoundController implements InterfaceControllerInterface {
 
 	@Override
 	public void turnOn(){
-		soundPool.play(soundId, 1, 1, 0, 0, 1);
+		playSoundId = soundPool.play(soundId, 1, 1, 0, 0, 1);
 	}
 
 	@Override
 	public void turnOff(){
-		
+		soundPool.stop(playSoundId);
 	}
 }
